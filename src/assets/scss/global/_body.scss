@@ -1,0 +1,12 @@
+body {
+	font-family: 'Roboto', sans-serif;
+  	font-size: 14pt;
+  	font-weight: 300;
+  	max-width: 1440px;
+  	margin: 0 auto;
+
+	  @include min1200 {
+    	font-size: 18pt;
+  	}
+
+}

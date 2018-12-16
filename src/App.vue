@@ -1,28 +1,72 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="relative">
+    <Nav
+    	@navWasChanged="currentPage = $event"
+    />
+    <Main
+    	:sendCurrentPage="currentPage"
+    >
+    </Main>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav';
+import Main from './components/Main';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
-  }
+    Nav,
+    Main
+  },
+  data() {
+  	return {
+  		currentPage: 'popular',
+  	}
+  },
+  watch: {
+    currentPage(  ) {
+      // console.log('currentPage ', value );
+    }
+  },
+
+  // Hooks
+  // beforeCreate() {
+  //   console.log('beforeCreate');
+  // },
+
+  // created() {
+  //   console.log('created');
+  // },
+
+  // beforeMount() {
+  //   console.log('before mount');
+  // },
+
+  // mounted() {
+  //   console.log('mounted');
+  // },
+
+  // beforeUpdate() {
+  //   console.log('before Update');
+  // },
+
+  // updated() {
+  //   console.log('updated');
+  // },
+
+  // destroy() {
+  //   console.log('destroy');
+  // }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import './assets/scss/_bundled';
+
 </style>
+
+
